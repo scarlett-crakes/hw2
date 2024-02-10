@@ -1,5 +1,8 @@
 #include <sstream>
 #include <iomanip>
+#include <map>
+#include <set>
+#include <vector>
 #include "product.h"
 
 using namespace std;

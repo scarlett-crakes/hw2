@@ -15,15 +15,46 @@ std::string convToLower(std::string src)
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
+    set<string> cart;
 
-
-
-
-
-
-
-
-
+    string newString;
+    stringstream ss(rawWords);
+    while(ss >> newString)
+    {
+      //cout << newString << endl;
+      int length = newString.length();
+      string anotherNewString;
+      if(length > 1)
+      {
+        for(int i = 0; i < length; i++)
+        {
+          if(!std::ispunct(newString[i])) //includes hashes has to make it exlude that
+          {
+            anotherNewString += newString[i];
+          }
+          else if(newString[i] == '-')
+          {
+            anotherNewString += newString[i];
+          }
+          else
+          {
+            //cout << anotherNewString << endl;
+            if(anotherNewString.length() > 1)
+            {
+              cart.insert(anotherNewString);
+            }
+            anotherNewString.clear();
+          }
+        }
+        if(anotherNewString.length() > 1)
+        {
+          //cout << anotherNewString << endl;
+          cart.insert(anotherNewString);
+          anotherNewString.clear();
+        }
+      }
+    }
+  return cart;
 
 }
 
